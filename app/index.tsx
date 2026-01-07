@@ -5,7 +5,7 @@ export default function Index() {
   const { isLoggedIn } = useAuth();
 
   if (isLoggedIn) {
-    return <Redirect href="/(home)/index" />;
+    return <Redirect href="/(home)" />;
   }
 
   return <Redirect href="/(auth)/login" />;

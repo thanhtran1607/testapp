@@ -127,6 +127,12 @@ function CustomDrawerContent(props: any) {
             onPress={() => props.navigation.navigate('settings')}
             isActive={currentRoute === 'settings'}
           />
+          <MenuItem
+            icon="📹"
+            label="Hiển thị camera"
+            onPress={() => props.navigation.navigate('camera')}
+            isActive={currentRoute === 'camera'}
+          />
         </View>
 
         {/* Other Section */}
@@ -245,6 +251,13 @@ export default function DrawerLayout() {
         options={{
           drawerLabel: 'Cài đặt',
           title: 'Cài đặt',
+        }}
+      />
+      <Drawer.Screen
+        name="camera"
+        options={{
+          drawerLabel: 'Hiển thị camera',
+          title: 'Hiển thị camera',
         }}
       />
     </Drawer>

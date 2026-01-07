@@ -3,17 +3,17 @@ import { LinearGradient } from 'expo-linear-gradient';
 import { Redirect } from 'expo-router';
 import React, { useState } from 'react';
 import {
-  ActivityIndicator,
-  Alert,
-  Dimensions,
-  KeyboardAvoidingView,
-  Platform,
-  ScrollView,
-  StyleSheet,
-  Text,
-  TextInput,
-  TouchableOpacity,
-  View,
+    ActivityIndicator,
+    Alert,
+    Dimensions,
+    KeyboardAvoidingView,
+    Platform,
+    ScrollView,
+    StyleSheet,
+    Text,
+    TextInput,
+    TouchableOpacity,
+    View,
 } from 'react-native';
 
 const { width, height } = Dimensions.get('window');
@@ -26,7 +26,7 @@ export default function LoginScreen() {
   const { login, isLoggedIn } = useAuth();
 
   if (isLoggedIn) {
-    return <Redirect href="/(home)/index" />;
+    return <Redirect href="/(home)" />;
   }
 
   const handleLogin = async () => {
