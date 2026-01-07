@@ -15,7 +15,7 @@ app-test/
 │   ├── (auth)/               # Group màn hình xác thực (chưa đăng nhập)
 │   │   ├── _layout.tsx       # Layout cho auth screens
 │   │   └── login.tsx         # Màn hình đăng nhập
-│   ├── (drawer)/             # Group màn hình chính (đã đăng nhập)
+│   ├── (home)/             # Group màn hình chính (đã đăng nhập)
 │   │   ├── _layout.tsx       # Layout Drawer navigation + menu sidebar
 │   │   ├── index.tsx         # Trang chủ (Home)
 │   │   ├── profile.tsx       # Trang hồ sơ cá nhân
@@ -66,7 +66,7 @@ app-test/
 | File | Mô tả |
 |------|-------|
 | `app/_layout.tsx` | **Root Layout** - Wrap toàn bộ app với `GestureHandlerRootView`, `AuthProvider`, `ThemeProvider`. Định nghĩa Stack navigator cho các routes chính. |
-| `app/index.tsx` | **Entry Point** - Kiểm tra `isLoggedIn` và redirect đến `/(drawer)` hoặc `/(auth)/login`. |
+| `app/index.tsx` | **Entry Point** - Kiểm tra `isLoggedIn` và redirect đến `/(home)` hoặc `/(auth)/login`. |
 | `app/modal.tsx` | Màn hình modal (chưa sử dụng). |
 
 ### 🔐 **Auth Group** `(auth)/`
@@ -76,14 +76,14 @@ app-test/
 | `(auth)/_layout.tsx` | Layout cho auth screens - Stack navigator không header. |
 | `(auth)/login.tsx` | **Màn hình Đăng nhập** - Form nhập email/password, gradient background, social login buttons. Redirect về drawer khi đăng nhập thành công. |
 
-### 📱 **Drawer Group** `(drawer)/`
+### 📱 **Drawer Group** `(home)/`
 
 | File | Mô tả |
 |------|-------|
-| `(drawer)/_layout.tsx` | **Drawer Layout** - Custom sidebar menu với profile user, menu items, stats card, logout button. Hamburger menu button trong header. |
-| `(drawer)/index.tsx` | **Trang chủ** - Welcome section, quick action cards, hoạt động gần đây. |
-| `(drawer)/profile.tsx` | **Hồ sơ cá nhân** - Avatar, thông tin user, cài đặt tài khoản. |
-| `(drawer)/settings.tsx` | **Cài đặt** - Toggle switches (dark mode, notifications, biometric), cài đặt app, hỗ trợ. |
+| `(home)/_layout.tsx` | **Drawer Layout** - Custom sidebar menu với profile user, menu items, stats card, logout button. Hamburger menu button trong header. |
+| `(home)/index.tsx` | **Trang chủ** - Welcome section, quick action cards, hoạt động gần đây. |
+| `(home)/profile.tsx` | **Hồ sơ cá nhân** - Avatar, thông tin user, cài đặt tài khoản. |
+| `(home)/settings.tsx` | **Cài đặt** - Toggle switches (dark mode, notifications, biometric), cài đặt app, hỗ trợ. |
 
 ### 🧩 **Contexts**
 
@@ -136,7 +136,7 @@ app-test/
 ┌─────────────────────────┐     ┌─────────────────────────┐
 │   isLoggedIn = false    │     │   isLoggedIn = true     │
 │                         │     │                         │
-│  → /(auth)/login        │     │  → /(drawer)            │
+│  → /(auth)/login        │     │  → /(home)            │
 │                         │     │                         │
 │  Màn hình đăng nhập     │     │  Drawer Navigation      │
 │  - Nhập email/password  │     │  - Home                 │

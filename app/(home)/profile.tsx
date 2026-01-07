@@ -14,8 +14,6 @@ export default function ProfileScreen() {
         end={{ x: 1, y: 1 }}
       />
 
-      {/* <View style={styles.decorCircle1} /> */}
-
       <ScrollView
         style={styles.scrollView}
         contentContainerStyle={styles.scrollContent}
@@ -132,15 +130,6 @@ const styles = StyleSheet.create({
     right: 0,
     top: 0,
     bottom: 0,
-  },
-  decorCircle1: {
-    position: 'absolute',
-    width: 300,
-    height: 300,
-    borderRadius: 150,
-    backgroundColor: 'rgba(233, 69, 96, 0.06)',
-    top: -100,
-    right: -100,
   },
   scrollView: {
     flex: 1,

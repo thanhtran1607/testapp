@@ -11,10 +11,6 @@ export default function HomeScreen() {
         end={{ x: 1, y: 1 }}
       />
 
-      {/* Decorative elements */}
-      {/* <View style={styles.decorCircle1} />
-      <View style={styles.decorCircle2} /> */}
-
       <ScrollView
         style={styles.scrollView}
         contentContainerStyle={styles.scrollContent}
@@ -122,24 +118,6 @@ const styles = StyleSheet.create({
     right: 0,
     top: 0,
     bottom: 0,
-  },
-  decorCircle1: {
-    position: 'absolute',
-    width: 250,
-    height: 250,
-    borderRadius: 125,
-    backgroundColor: 'rgba(233, 69, 96, 0.06)',
-    top: -80,
-    right: -100,
-  },
-  decorCircle2: {
-    position: 'absolute',
-    width: 180,
-    height: 180,
-    borderRadius: 90,
-    backgroundColor: 'rgba(59, 130, 246, 0.05)',
-    bottom: 100,
-    left: -80,
   },
   scrollView: {
     flex: 1,

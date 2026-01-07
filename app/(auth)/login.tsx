@@ -26,7 +26,7 @@ export default function LoginScreen() {
   const { login, isLoggedIn } = useAuth();
 
   if (isLoggedIn) {
-    return <Redirect href="/(drawer)" />;
+    return <Redirect href="/(home)/index" />;
   }
 
   const handleLogin = async () => {
@@ -57,11 +57,6 @@ export default function LoginScreen() {
         start={{ x: 0, y: 0 }}
         end={{ x: 1, y: 1 }}
       />
-
-      {/* Decorative circles */}
-      {/* <View style={styles.circle1} />
-      <View style={styles.circle2} />
-      <View style={styles.circle3} /> */}
 
       <KeyboardAvoidingView
         behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
@@ -191,9 +186,6 @@ export default function LoginScreen() {
               <TouchableOpacity style={styles.socialButton}>
                 <Text style={styles.socialIcon}>f</Text>
               </TouchableOpacity>
-              <TouchableOpacity style={styles.socialButton}>
-                <Text style={styles.socialIcon}></Text>
-              </TouchableOpacity>
             </View>
           </View>
 
@@ -221,33 +213,6 @@ const styles = StyleSheet.create({
     right: 0,
     top: 0,
     bottom: 0,
-  },
-  circle1: {
-    position: 'absolute',
-    width: 300,
-    height: 300,
-    borderRadius: 150,
-    backgroundColor: 'rgba(233, 69, 96, 0.1)',
-    top: -100,
-    right: -100,
-  },
-  circle2: {
-    position: 'absolute',
-    width: 200,
-    height: 200,
-    borderRadius: 100,
-    backgroundColor: 'rgba(255, 107, 107, 0.08)',
-    bottom: 100,
-    left: -80,
-  },
-  circle3: {
-    position: 'absolute',
-    width: 150,
-    height: 150,
-    borderRadius: 75,
-    backgroundColor: 'rgba(233, 69, 96, 0.05)',
-    top: height * 0.4,
-    right: -50,
   },
   keyboardView: {
     flex: 1,

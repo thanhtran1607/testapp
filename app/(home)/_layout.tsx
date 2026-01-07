@@ -76,10 +76,6 @@ function CustomDrawerContent(props: any) {
         end={{ x: 0.5, y: 1 }}
       />
 
-      {/* Decorative elements */}
-      {/* <View style={styles.decorCircle1} />
-      <View style={styles.decorCircle2} /> */}
-
       <ScrollView
         style={styles.scrollView}
         contentContainerStyle={styles.scrollContent}
@@ -284,24 +280,6 @@ const styles = StyleSheet.create({
     right: 0,
     top: 0,
     bottom: 0,
-  },
-  decorCircle1: {
-    position: 'absolute',
-    width: 200,
-    height: 200,
-    borderRadius: 100,
-    backgroundColor: 'rgba(233, 69, 96, 0.08)',
-    top: -50,
-    right: -80,
-  },
-  decorCircle2: {
-    position: 'absolute',
-    width: 150,
-    height: 150,
-    borderRadius: 75,
-    backgroundColor: 'rgba(255, 107, 107, 0.05)',
-    bottom: 150,
-    left: -60,
   },
   scrollView: {
     flex: 1,

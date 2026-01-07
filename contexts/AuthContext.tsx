@@ -1,4 +1,5 @@
-import React, { createContext, useContext, useState, ReactNode } from 'react';
+import { clearStore, getStore, setStore } from '@/stores';
+import React, { createContext, ReactNode, useContext, useEffect, useState } from 'react';
 
 interface AuthContextType {
   isLoggedIn: boolean;
@@ -20,6 +21,9 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 
     // Fake validation - chỉ cần email và password không rỗng
     if (email && password) {
+      await setStore({ key: 'token', value: 'token', typeStorage: 'cookie' });
+      await setStore({ key: 'user', value: JSON.stringify({ email }), typeStorage: 'cookie' });
+      await setStore({ key: 'isLoggedIn', value: 'true', typeStorage: 'cookie' });
       setUser({ email });
       setIsLoggedIn(true);
       return true;
@@ -27,10 +31,23 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     return false;
   };
 
-  const logout = () => {
+  const logout = async () => {
     setUser(null);
     setIsLoggedIn(false);
+    await clearStore({ typeStorage: 'cookie' });
+    await clearStore({ typeStorage: 'mmkv' });
   };
+
+  useEffect(() => {
+    const checkLogin = async () => {
+      const token = await getStore({ key: 'token', typeStorage: 'cookie' });
+      const user = await getStore({ key: 'user', typeStorage: 'cookie' });
+      const isLoggedIn = await getStore({ key: 'isLoggedIn', typeStorage: 'cookie' });
+      setUser(user ? JSON.parse(user) : null);
+      setIsLoggedIn(isLoggedIn === 'true');
+    };
+    checkLogin();
+  }, []);
 
   return (
     <AuthContext.Provider value={{ isLoggedIn, user, login, logout }}>
